@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Sweet Delights</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="section-header">
+            <h2>Order Confirmation</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="order-confirmation">
+            <h3>Thank you for your order!</h3>
+            <div id="orderDetails">
+                <!-- Order details will be displayed here by JavaScript -->
+            </div>
+            <div class="confirmation-buttons">
+                <a href="index.html" class="submit-btn">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Get order details from URL parameters
+        const orderDetails = {
+            name: urlParams.get('customer_name'),
+            email: urlParams.get('email'),
+            product: urlParams.get('product'),
+            quantity: urlParams.get('quantity'),
+            deliveryMethod: urlParams.get('delivery_method')
+        };
+
+        // Display order details
+        const detailsHtml = `
+            <div class="order-details">
+                <p><strong>Name:</strong> ${orderDetails.name || 'Not provided'}</p>
+                <p><strong>Email:</strong> ${orderDetails.email || 'Not provided'}</p>
+                <p><strong>Product:</strong> ${orderDetails.product || 'Not provided'}</p>
+                <p><strong>Quantity:</strong> ${orderDetails.quantity || 'Not provided'}</p>
+                <p><strong>Delivery Method:</strong> ${orderDetails.deliveryMethod || 'Not provided'}</p>
+            </div>
+        `;
+
+        document.getElementById('orderDetails').innerHTML = detailsHtml;
+    </script>
+</body>
+</html>
