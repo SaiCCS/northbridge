@@ -16,7 +16,7 @@
         <div class="order-confirmation">
             <h3>Thank you for your order!</h3>
             <div id="orderDetails">
-                <!-- Order details will be displayed here by JavaScript -->
+                
             </div>
             <div class="confirmation-buttons">
                 <a href="index.html" class="submit-btn">Back to Home</a>
@@ -25,10 +25,10 @@
     </div>
 
     <script>
-        // Get URL parameters
+       
         const urlParams = new URLSearchParams(window.location.search);
         
-        // Get order details from URL parameters
+        
         const orderDetails = {
             name: urlParams.get('customer_name'),
             email: urlParams.get('email'),
@@ -37,7 +37,7 @@
             deliveryMethod: urlParams.get('delivery_method')
         };
 
-        // Display order details
+        
         const detailsHtml = `
             <div class="order-details">
                 <p><strong>Name:</strong> ${orderDetails.name || 'Not provided'}</p>
